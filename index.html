@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sasi ❤️ Sri Thanuja</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Heart cursor trail canvas -->
+  <canvas id="trailCanvas"></canvas>
+
+  <!-- Background sparkles -->
+  <div id="sparkles"></div>
+
+  <!-- Floating hearts background -->
+  <div id="floatingHearts"></div>
+
+  <!-- ===== SCREEN 1: OPENING ===== -->
+  <section id="openingScreen" class="screen active">
+    <div class="opening-content">
+      <div class="love-emoji-top">💖</div>
+      <div id="typingText" class="typing-text"></div>
+      <div class="subtitle-text" id="subtitleText"></div>
+      <button id="openHeartBtn" class="glow-btn hidden" onclick="goToProposal()">
+        Open My Heart 💌
+      </button>
+    </div>
+    <!-- Music control -->
+    <button id="muteBtn" class="mute-btn" onclick="toggleMute()">🔊</button>
+  </section>
+
+  <!-- ===== SCREEN 2: PROPOSAL ===== -->
+  <section id="proposalScreen" class="screen">
+    <div class="proposal-card">
+      <div class="card-hearts">💖 💕 💖</div>
+      <h1 class="proposal-title">Will You Be<br/>Mine Forever,<br/><span class="name-highlight">Sri Thanuja?</span></h1>
+      <div class="proposal-emoji">🥺💍💖</div>
+      <p id="proposalMsg" class="proposal-msg">Every moment I think of you, my heart smiles ✨</p>
+      <div class="btn-container" id="btnContainer">
+        <button id="yesBtn" class="yes-btn" onclick="handleYes()">YES 💖</button>
+        <button id="noBtn" class="no-btn" onclick="handleNo()">NO 😢</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCREEN 3: MEMORIES ===== -->
+  <section id="memoriesScreen" class="screen">
+    <div class="memories-header">
+      <h2 class="memories-title">Our Little World 🌸</h2>
+      <p class="memories-sub">Moments with you, forever treasured 💕</p>
+    </div>
+    <div class="slideshow-container">
+      <div class="slide active-slide">
+        <!-- REPLACE: swap src with your actual photo paths -->
+        <div class="photo-frame">
+          <img src="photo1.jpg" alt="Memory 1" class="memory-photo" onerror="this.parentElement.classList.add('placeholder')" />
+          <div class="photo-placeholder-icon">📸</div>
+        </div>
+        <p class="slide-caption">The day my world changed forever 💫</p>
+      </div>
+      <div class="slide">
+        <div class="photo-frame">
+          <img src="photo2.jpg" alt="Memory 2" class="memory-photo" onerror="this.parentElement.classList.add('placeholder')" />
+          <div class="photo-placeholder-icon">📸</div>
+        </div>
+        <p class="slide-caption">Your smile is my favourite view 🌸</p>
+      </div>
+      <div class="slide">
+        <div class="photo-frame">
+          <img src="photo3.jpg" alt="Memory 3" class="memory-photo" onerror="this.parentElement.classList.add('placeholder')" />
+          <div class="photo-placeholder-icon">📸</div>
+        </div>
+        <p class="slide-caption">With you, every moment is magic ✨</p>
+      </div>
+      <div class="slide">
+        <div class="photo-frame">
+          <img src="photo4.jpg" alt="Memory 4" class="memory-photo" onerror="this.parentElement.classList.add('placeholder')" />
+          <div class="photo-placeholder-icon">📸</div>
+        </div>
+        <p class="slide-caption">Us against the world 💑</p>
+      </div>
+      <!-- Slideshow controls -->
+      <button class="slide-btn prev" onclick="changeSlide(-1)">‹</button>
+      <button class="slide-btn next" onclick="changeSlide(1)">›</button>
+      <div class="slide-dots" id="slideDots"></div>
+    </div>
+    <button class="glow-btn continue-btn" onclick="goToFinal()">Continue Our Story 💖</button>
+  </section>
+
+  <!-- ===== SCREEN 4: FINAL ===== -->
+  <section id="finalScreen" class="screen">
+    <div class="final-content">
+      <p class="final-quote">"Some souls are just meant to<br/>find each other forever 💖"</p>
+
+      <div class="couple-section">
+        <div class="person-circle">
+          <!-- REPLACE: src with Sasi's photo path -->
+          <img src="sasi.jpg" alt="Sasi" class="person-photo" onerror="this.src=''" />
+          <div class="person-placeholder">🧑</div>
+          <span class="person-name">Sasi</span>
+        </div>
+
+        <div class="heart-between">
+          <div class="big-heart">❤️</div>
+        </div>
+
+        <div class="person-circle">
+          <!-- REPLACE: src with Sri Thanuja's photo path -->
+          <img src="thanuja.jpg" alt="Sri Thanuja" class="person-photo" onerror="this.src=''" />
+          <div class="person-placeholder">👩</div>
+          <span class="person-name">Sri Thanuja</span>
+        </div>
+      </div>
+
+      <h2 class="final-names">Sasi ❤️ Sri Thanuja</h2>
+      <p class="final-tagline">Forever & Always 💕</p>
+    </div>
+  </section>
+
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
